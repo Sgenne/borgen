@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@themes {
+@theme {
     --color-success: #077D69;
     --color-success-hover: hsl(170, 89%, 24%);
 }
