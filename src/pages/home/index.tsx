@@ -17,9 +17,9 @@ function Home() {
                     className="object-cover object-[0_35%] w-full h-full"
                 />
             </section>
-            <section className="grid grid-cols-2">
+            <section className="grid lg:grid-cols-2">
                 <h2 className="sr-only">Om oss</h2>
-                <div className="text-gray-800 text-xl p-10 gap-y-5 flex flex-col justify-start">
+                <div className="text-gray-800 text-xl p-10 gap-y-5 flex flex-col justify-start px-4">
                     <span className="font-semibold text-3xl">Välkommen till Borgen Träd & Trädgård AB!</span>
                     <p>
                         Vi erbjuder tjänster inom trädgård, trädfällning, naturvård och snöröjning för företag,
@@ -31,7 +31,7 @@ function Home() {
                     </p>
                     <p>Välkommen att kontakta oss.</p>
                 </div>
-                <div className=" rounded-s-4xl overflow-hidden">
+                <div className="overflow-hidden hidden lg:block">
                     <img
                         src="lumbeaver_lumbercat.png"
                         alt="Katt och bäver hugger ner träd"

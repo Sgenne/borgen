@@ -1,6 +1,15 @@
 import { createBrowserRouter, RouterProvider } from "react-router";
 import Layout from "./Layout";
 import Home from "./pages/home";
+import About from "./pages/about";
+import Rut from "./pages/rut";
+import NewsArchive from "./pages/news-archive";
+import EnvironmentCertification from "./pages/environment-certification";
+import Contact from "./pages/contact";
+import GardeningServices from "./pages/gardening-services";
+import ForestServices from "./pages/ForestServices";
+import NatureConservation from "./pages/nature-conservation";
+import SnowAndIce from "./pages/snow-and-ice";
 
 const router = createBrowserRouter([
     {
@@ -12,10 +21,34 @@ const router = createBrowserRouter([
         )
     },
     {
-        path: "/services",
+        path: "/gardening-services",
         element: (
             <Layout>
-                <div>Tjänster</div>
+                <GardeningServices />
+            </Layout>
+        )
+    },
+    {
+        path: "/forest-services",
+        element: (
+            <Layout>
+                <ForestServices />
+            </Layout>
+        )
+    },
+    {
+        path: "/nature-conservation",
+        element: (
+            <Layout>
+                <NatureConservation />
+            </Layout>
+        )
+    },
+    {
+        path: "/snow-and-ice",
+        element: (
+            <Layout>
+                <SnowAndIce />
             </Layout>
         )
     },
@@ -23,7 +56,7 @@ const router = createBrowserRouter([
         path: "/rut",
         element: (
             <Layout>
-                <div>RUT</div>
+                <Rut />
             </Layout>
         )
     },
@@ -31,7 +64,7 @@ const router = createBrowserRouter([
         path: "/news-archive",
         element: (
             <Layout>
-                <div>Nyheter och Arkiv</div>
+                <NewsArchive />
             </Layout>
         )
     },
@@ -39,7 +72,7 @@ const router = createBrowserRouter([
         path: "/environment-certification",
         element: (
             <Layout>
-                <div>Miljö och Certifiering</div>
+                <EnvironmentCertification />
             </Layout>
         )
     },
@@ -47,7 +80,7 @@ const router = createBrowserRouter([
         path: "/about",
         element: (
             <Layout>
-                <div>About</div>
+                <About />
             </Layout>
         )
     },
@@ -55,7 +88,7 @@ const router = createBrowserRouter([
         path: "/contact",
         element: (
             <Layout>
-                <div>Kontakt</div>
+                <Contact />
             </Layout>
         )
     }

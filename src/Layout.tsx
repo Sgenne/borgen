@@ -14,39 +14,26 @@ const links = [
     { to: "/", text: "Start" },
     {
         text: "Tjänster",
-        to: "/services",
         options: [
             {
                 text: "Trädgård och grönytor",
-                to: "/services#gardening"
+                to: "/gardening-services"
             },
             {
-                text: "Gräsklippning",
-                to: "/services#lawn-mowing"
+                text: "Träd och skog",
+                to: "/forest-services"
             },
             {
-                text: "Trädfällning och beskärning",
-                to: "/services#tree-felling"
+                text: "Naturvård",
+                to: "/nature-conservation"
             },
             {
-                text: "Vertikalskärning",
-                to: "/services#vertical-cutting"
-            },
-            {
-                text: "Mossrivning",
-                to: "/services#moss-removal"
-            },
-            {
-                text: "Ogräsrensning",
-                to: "/services#weed-removal"
-            },
-            {
-                text: "Lövuppsamling",
-                to: "/services#leaf-collection"
+                text: "Snö och halka",
+                to: "/snow-and-ice"
             }
         ]
     },
-    { to: "/rut", text: "RUT avdrag" },
+    { to: "/rut", text: "RUT-avdrag" },
     { to: "/news-archive", text: "Nyheter & arkiv" },
     { to: "/environment-certification", text: "Miljö & Certifiering" },
     { to: "/about", text: "Om oss" },
@@ -82,7 +69,7 @@ function Layout(props: Props) {
                     >
                         {link.options.map((o) => (
                             <Link to={o.to} key={o.to}>
-                                <MenuItem as="div" className="p-2 whitespace-nowrap text-gray-600 hover:bg-gray-100">
+                                <MenuItem as="div" className="p-3 whitespace-nowrap text-gray-600 hover:bg-gray-100">
                                     {o.text}
                                 </MenuItem>
                             </Link>
@@ -93,9 +80,9 @@ function Layout(props: Props) {
         </li>
     ));
 
-    const sideBarLinks = links.map((link) => (
-        <li key={link.to}>
-            {link.text !== "Tjänster" ? (
+    const sideBarLinks = links.map((link) =>
+        link.text !== "Tjänster" ? (
+            <li key={link.to}>
                 <Link
                     to={link.to ?? "/"}
                     className="text-3xl font-medium me-4 whitespace-nowrap text-white hover:underline"
@@ -103,32 +90,21 @@ function Layout(props: Props) {
                 >
                     {link.text}
                 </Link>
-            ) : link.text === "Tjänster" && link.options ? (
-                <div className="text-end">
+            </li>
+        ) : link.text === "Tjänster" && link.options ? (
+            link.options.map((o) => (
+                <li>
                     <Link
-                        to={link.to}
+                        to={o.to ?? "/"}
                         className="text-3xl font-medium me-4 whitespace-nowrap text-white hover:underline"
                         onClick={() => setIsSideBarOpen(false)}
                     >
-                        Tjänster
+                        {o.text}
                     </Link>
-                    <ul className={"px-4"}>
-                        {link.options.map((o) => (
-                            <li>
-                                <Link
-                                    to={o.to ?? "/"}
-                                    className="text-2xl font-medium me-4 whitespace-nowrap text-white hover:underline"
-                                    onClick={() => setIsSideBarOpen(false)}
-                                >
-                                    {o.text}
-                                </Link>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            ) : null}
-        </li>
-    ));
+                </li>
+            ))
+        ) : null
+    );
 
     return (
         <div className="min-h-screen">
@@ -148,13 +124,13 @@ function Layout(props: Props) {
                 </div>
             </nav>
             <main className="h-[calc(100vh-95px)]">
-                <div className="min-h-full bg-[#fcfcfc]">{props.children}</div>
+                <div className="bg-[#fcfcfc]">{props.children}</div>
                 <div
-                    className={`fixed top-0 end-0 h-full w-full bg-[#111111] text-white p-4 transition-all duration-100 z-300 ${
+                    className={`fixed top-0 bottom-0 end-0 overflow-y-scroll w-full bg-[#111111] text-white p-4 transition-all duration-100 z-300 ${
                         isSideBarOpen ? "translate-x-0 lg:translate-x-full" : "translate-x-full"
                     }`}
                 >
-                    <div className="flex justify-between ">
+                    <div className="flex justify-between">
                         <Link
                             to="/"
                             className="text-4xl font-bold whitespace-nowrap"
@@ -171,9 +147,7 @@ function Layout(props: Props) {
                             <span className="text-lg font-medium pb-0.5">Stäng</span>
                         </AppButton>
                     </div>
-                    <div>
-                        <ul className="flex flex-col gap-y-6 text-2xl items-end text-white">{sideBarLinks}</ul>
-                    </div>
+                    <ul className="flex flex-col gap-y-6 text-2xl items-end text-white">{sideBarLinks}</ul>
                 </div>
             </main>
         </div>
