@@ -6,9 +6,9 @@ function Home() {
                     <div className="max-w-7xl mx-auto text-center h-full flex items-center">
                         <h1 className="text-5xl font-semibold">Välkommen till Borgen Träd & Trädgård AB</h1>
                     </div>
-                    <div className="w-full h-32 bg-success flex items-center justify-center text-2xl font-medium gap-x-8">
-                        <span>Trädgård</span> <span>•</span> <span>Trädfällning</span> <span>•</span>{" "}
-                        <span>Naturvård</span> <span>•</span> <span>Snöröjning</span>
+                    <div className="w-full h-32 bg-success flex flex-wrap items-center justify-center text-2xl font-medium gap-x-14">
+                        <span>Trädgård</span> <span>Trädfällning</span>
+                        <span>Naturvård</span> <span>Snöröjning</span>
                     </div>
                 </div>
                 <img
